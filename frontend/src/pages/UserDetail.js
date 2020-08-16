@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
+import {Link} from 'react-router-dom'
 
 function UserDetail(props){
 
@@ -8,6 +9,7 @@ function UserDetail(props){
         <div>
             <div style={{textAlign:"center"}}>
                 <h2>User Detail</h2>
+                <div><Link to='/userlist'>Go Back</Link></div>
             </div>
             <br />
             <div  style={{textAlign:"center"}}>

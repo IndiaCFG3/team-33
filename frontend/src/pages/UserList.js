@@ -1,11 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
+import NavBar from './NavBar'
 
 function UserList(props){
 
     return(
         <div>
+        <NavBar />
             <div style={{textAlign:"center"}}>
                 <h2>User List</h2>
             </div>

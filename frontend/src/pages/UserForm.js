@@ -1,11 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
+import NavBar from './NavBar'
 
 function UserForm(props){
 
     return(
         <div>
+        <NavBar />
         <h1>User Detail Form</h1>
         <div style={{margin:"30px"}}>
         <Col xs={{span:5, offset:3}}>

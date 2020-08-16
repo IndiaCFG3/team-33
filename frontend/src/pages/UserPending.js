@@ -1,11 +1,13 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form, Table, thead, tbody} from 'react-bootstrap'
+import NavBar from './NavBar'
 
 function UserPending(props){
 
     return(
         <div>
+        <NavBar />
             <div style={{textAlign:"center"}}>
             <h1>Schemes Progress</h1>
             </div>
@@ -46,7 +48,7 @@ function UserPending(props){
                 </Table>
                 </Col>
                 <Col xs={6}>
-                <Table  bordered hover style={{marginLeft:"2%"}}>
+                <Table  bordered hover style={{marginRight:"2%"}}>
                 <thead>
                     <tr>
                     
