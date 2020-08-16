@@ -4,17 +4,17 @@ from datetime import datetime
 
 
 class Gender(enum.Enum):
-    male = "M"
-    female = "F"
-    others = "O"
+    male = "Male"
+    female = "Female"
+    others = "Others"
 
 
 class MarriageStatus(enum.Enum):
-    single = "single"
-    married = "married"
-    divorced = "divorced"
-    widow = "widow"
-    widower = "widower"
+    single = "Single"
+    married = "Married"
+    divorced = "Divorced"
+    widow = "Widow"
+    widower = "Widower"
 
 
 class User(db.Model):
@@ -64,7 +64,7 @@ class Volunteer(db.Model):
 
 class User_Volunteer(db.Model):
     __tablename__ = 'user_volunteer'
-    user_id = user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
     volunteer_id = db.Column(db.Integer, db.ForeignKey('volunteer.volunteer_id'), primary_key=True, nullable=False)
 
 class User_Scheme(db.Model):
