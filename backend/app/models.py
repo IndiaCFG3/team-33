@@ -40,6 +40,11 @@ class User(db.Model):
     
     def __repr__(self):  # shows how user object will look like when its printed known as magic method
         return f"User('{self.fname}','{self.lname}')"
+    
+    def serialize(self):
+        return {"user_id": self.user_id,
+                "fname": self.fname,
+                "lname": self.lname}
 
 
 class Scheme(db.Model):
@@ -48,13 +53,17 @@ class Scheme(db.Model):
     organization = db.Column(db.String(150), nullable=False)
     private = db.Column(db.Boolean, nullable=False)
     description = db.Column(db.Text, nullable=False)
-    criteria_city = db.Column(db.Text, nullable = True)
-    criteria_state = db.Column(db.Text, nullable=True)
-    criteria_gender = db.Column(db.Text, nullable=True)
-    criteria_monthly_income = db.Column(db.Text, nullable=True)
-    criteria_marriage_status = db.Column(db.Text, nullable=True)
-    criteria_age = db.Column(db.Text, nullable=True)
-    criteria_other = db.Column(db.Text, nullable = True)
+    # criteria_city = db.Column(db.Text, nullable = True)
+    # criteria_state = db.Column(db.Text, nullable=True)
+    # criteria_gender = db.Column(db.Text, nullable=True)
+    # criteria_monthly_income = db.Column(db.Text, nullable=True)
+    # criteria_marriage_status = db.Column(db.Text, nullable=True)
+    # criteria_age = db.Column(db.Text, nullable=True)
+    # criteria_other = db.Column(db.Text, nullable = True)
+    def serialize(self):
+        return {"scheme_id": self.scheme_id,
+                "description": self.description,
+                "organization": self.organization}
 
 class Volunteer(db.Model):
     __tablename__ = 'volunteer'

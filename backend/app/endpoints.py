@@ -44,21 +44,43 @@ def register_user():
 	else:
 		return jsonify({"status": 400})
 
+def get_schemes_per_user(user_id):
+	schemes = User_Scheme.query.filter_by(user_id=user_id).all()
+	scheme_list = []
+	for scheme in schemes:
+		scheme_dict = {}
+		scheme_dict['complete'] = scheme.complete
+		scheme_dict['status_description'] = scheme.status_description
+		scheme_dict['scheme_id'] = scheme.scheme_id
+		all_user_schemes = Scheme.query.filter_by(scheme_id=scheme.scheme_id).first().serialize()
+		scheme_list.append(all_user_schemes)
+	return scheme_list
+
+@app.route('/users/all')
+def get_all_users():
+	users = User.query.all()
+	users_schemes = []
+	for user in users:
+		users_schemes_dict = {}
+		users_schemes_dict["User"] = user.serialize()
+		scheme_list = get_schemes_per_user(user.user_id)
+		users_schemes_dict["Schemes"] = scheme_list
+		users_schemes.append(users_schemes_dict)
+	return jsonify(users_schemes)
 
 @app.route('/scheme/add', methods=['POST'])
 def add_scheme():
 	content = request.get_json(silent=False) # change to silent = True
 	scheme = Scheme(
 		organization=content.get('organization'),
-		private=content.get('private'),
-		description=content.get('description'),
-		criteria_city = content.get('criteria_city'),
-		criteria_state=content.get('criteria_state'),
-		criteria_gender=content.get('criteria_gender'),
-		criteria_monthly_income=content.get('criteria_monthly_income'),
-		criteria_marriage_status=content.get('criteria_marriage_status'),
-		criteria_age=content.get('criteria_age'),
-		criteria_other=content.get('criteria_other')
+		description=content.get('description')
+		# criteria_city = content.get('criteria_city'),
+		# criteria_state=content.get('criteria_state'),
+		# criteria_gender=content.get('criteria_gender'),
+		# criteria_monthly_income=content.get('criteria_monthly_income'),
+		# criteria_marriage_status=content.get('criteria_marriage_status'),
+		# criteria_age=content.get('criteria_age'),
+		# criteria_other=content.get('criteria_other')
 	)
 	return jsonify({"status": 200})
 	# How to handle criteria?
