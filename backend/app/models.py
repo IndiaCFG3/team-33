@@ -4,17 +4,17 @@ from datetime import datetime
 
 
 class Gender(enum.Enum):
-    male = "M"
-    female = "F"
-    others = "O"
+    male = "Male"
+    female = "Female"
+    others = "Others"
 
 
 class MarriageStatus(enum.Enum):
-    single = "single"
-    married = "married"
-    divorced = "divorced"
-    widow = "widow"
-    widower = "widower"
+    single = "Single"
+    married = "Married"
+    divorced = "Divorced"
+    widow = "Widow"
+    widower = "Widower"
 
 
 class User(db.Model):
@@ -32,6 +32,7 @@ class User(db.Model):
     pincode = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.Enum(Gender), nullable=False)
     dob = db.Column(db.String(20), nullable=False)
+    age = db.Column(db.Integer, nullable=False)
     monthly_income = db.Column(db.Numeric, nullable=False)
     education = db.Column(db.String(100), nullable=False)
     marriage_status = db.Column(db.Enum(MarriageStatus), nullable=False)
@@ -48,8 +49,13 @@ class Scheme(db.Model):
     organization = db.Column(db.String(150), nullable=False)
     private = db.Column(db.Boolean, nullable=False)
     description = db.Column(db.Text, nullable=False)
-    criteria = db.Column(db.Text, nullable=False)
-
+    criteria_city = db.Column(db.Text, nullable = True)
+    criteria_state = db.Column(db.Text, nullable=True)
+    criteria_gender = db.Column(db.Text, nullable=True)
+    criteria_monthly_income = db.Column(db.Text, nullable=True)
+    criteria_marriage_status = db.Column(db.Text, nullable=True)
+    criteria_age = db.Column(db.Text, nullable=True)
+    criteria_other = db.Column(db.Text, nullable = True)
 
 class Volunteer(db.Model):
     # __tablename__ = 'volunteer'
@@ -64,7 +70,7 @@ class Volunteer(db.Model):
 
 class User_Volunteer(db.Model):
     __tablename__ = 'user_volunteer'
-    user_id = user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
+    user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
     volunteer_id = db.Column(db.Integer, db.ForeignKey('volunteer.volunteer_id'), primary_key=True, nullable=False)
 
 class User_Scheme(db.Model):
