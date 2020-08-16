@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 function Signup(props){
 
@@ -41,6 +42,8 @@ function Signup(props){
                 Sign Up
             </Button>
             </Form>
+            <br/>
+            <div>Already a Member? <Link to='/'>Login</Link> </div>
         </Col>
         </div>
         </div>

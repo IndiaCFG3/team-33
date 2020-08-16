@@ -1,6 +1,7 @@
 import React from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
+import {Link} from 'react-router-dom'
 
 function Login(props){
     function handleClick(){
@@ -17,20 +18,22 @@ function Login(props){
         
             <Form>
             
-  <Form.Group controlId="formBasicEmail">
-    
-    <Form.Control type="email" placeholder="Enter email" />
-    
-  </Form.Group>
- 
+                <Form.Group controlId="formBasicEmail">
+                    
+                    <Form.Control type="email" placeholder="Enter email" />
+                    
+                </Form.Group>
+                
 
-  <Form.Group controlId="formBasicPassword">
-    <Form.Control type="password" placeholder="Password" />
-  </Form.Group>
-  <Button variant="primary" type="submit">
-    Login
-  </Button>
-</Form>
+                <Form.Group controlId="formBasicPassword">
+                    <Form.Control type="password" placeholder="Password" />
+                </Form.Group>
+                <Button variant="primary" type="submit">
+                    Login
+                </Button>
+                </Form>
+                <br/>
+                <div>Yet to be a Member? <Link to='/signup'>Signup</Link> </div>
         </Col>
         </div>
         </div>
