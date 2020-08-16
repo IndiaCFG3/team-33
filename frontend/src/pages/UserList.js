@@ -30,8 +30,7 @@ function UserList(props){
             </Row>
             <br />
             <hr style={{width:"80%"}} />
-            {userList.map(user => { 
-                return(
+            
                     <div>
                     <Row>
             <Col xs={{span:4, offset:1}}>
@@ -44,8 +43,6 @@ function UserList(props){
             <hr style={{width:"60%"}} />
             </div>
 
-                )
-            })}
 
             
         </div>
