@@ -1,9 +1,10 @@
-import React from 'react'
+import React , { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
 
 function UserDetail(props){
+    var [userDetail, setuserDetail] = useState({});
 
     return(
         <div>

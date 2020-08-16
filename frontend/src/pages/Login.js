@@ -1,13 +1,13 @@
-import React from 'react'
+import React , { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
 function Login(props){
-    function handleClick(){
-        console.log('clicked')
-
-    }
+    var [userLogin, setuserLogin] = useState({
+        email:"",
+        password:""
+    })
 
     return(
         <div>
@@ -20,13 +20,13 @@ function Login(props){
             
                 <Form.Group controlId="formBasicEmail">
                     
-                    <Form.Control type="email" placeholder="Enter email" />
+                    <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setuserLogin({...userLogin, email:e.target.value})}} />
                     
                 </Form.Group>
                 
 
                 <Form.Group controlId="formBasicPassword">
-                    <Form.Control type="password" placeholder="Password" />
+                    <Form.Control type="password" placeholder="Password" onChange={(e)=>{setuserLogin({...userLogin, password:e.target.value})}} />
                 </Form.Group>
                 <Button variant="primary" type="submit">
                     Login

@@ -1,9 +1,15 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
 
 function Signup(props){
+    var [userSignUp, setuserSignUp] = useState({
+        email:"",
+        firstname:"",
+        lastname:"",
+        password:""
+    })
 
     return(
         <div>
@@ -17,22 +23,22 @@ function Signup(props){
             
             <Form.Group controlId="formBasicEmail">
                 
-                <Form.Control type="email" placeholder="Enter email" />
+                <Form.Control type="email" placeholder="Enter email" onChange={(e)=>{setuserSignUp({...userSignUp, email:e.target.value})}} />
                 
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
                 
-                <Form.Control type="text" placeholder="First Name" />
+                <Form.Control type="text" placeholder="First Name" onChange={(e)=>{setuserSignUp({...userSignUp, firstname:e.target.value})}} />
                 
             </Form.Group>
             <Form.Group controlId="formBasicEmail">
                
-                <Form.Control type="text" placeholder="Last Name" />
+                <Form.Control type="text" placeholder="Last Name" onChange={(e)=>{setuserSignUp({...userSignUp, lastname:e.target.value})}} />
                 
             </Form.Group> 
             <Form.Group controlId="formBasicPassword">
               
-                <Form.Control type="password" placeholder="Password" />
+                <Form.Control type="password" placeholder="Password" onChange={(e)=>{setuserSignUp({...userSignUp, password:e.target.value})}} />
             </Form.Group>
             <Form.Group controlId="formBasicPassword">
                 

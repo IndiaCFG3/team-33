@@ -1,9 +1,12 @@
-import React from 'react'
+import React , { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
 import NavBar from './NavBar'
 
+
+
 function UserList(props){
+    var [userList, setuserList] = useState(['a','b']);
 
     return(
         <div>
@@ -22,8 +25,10 @@ function UserList(props){
             </Row>
             <br />
             <hr style={{width:"80%"}} />
-
-            <Row>
+            {userList.map(user => {
+                return(
+                    <div>
+                    <Row>
             <Col xs={{span:4, offset:1}}>
                     <div>Mera Naam</div>
                 </Col>
@@ -32,6 +37,12 @@ function UserList(props){
                 </Col>
             </Row>
             <hr style={{width:"60%"}} />
+            </div>
+
+                )
+            })}
+
+            
         </div>
     )
 }

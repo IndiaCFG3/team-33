@@ -1,9 +1,11 @@
-import React from 'react'
+import React , { useState, useEffect } from  'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form, Table, thead, tbody} from 'react-bootstrap'
 import NavBar from './NavBar'
 
 function UserPending(props){
+
+    var [userList, setuserList] = useState(['a','b']);
 
     return(
         <div>
