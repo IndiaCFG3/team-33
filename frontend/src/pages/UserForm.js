@@ -1,4 +1,5 @@
 import React from 'react'
+import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
 
 function UserForm(props){
@@ -35,7 +36,13 @@ function UserForm(props){
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlInput1">
   <div style={{textAlign:"left"}}>
-    <Form.Label>Adddress</Form.Label>
+    <Form.Label>Address 1</Form.Label>
+    </div>
+    <Form.Control type="text" placeholder="Address" />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlInput1">
+  <div style={{textAlign:"left"}}>
+    <Form.Label>Address 2</Form.Label>
     </div>
     <Form.Control type="text" placeholder="Address" />
   </Form.Group>
@@ -44,6 +51,12 @@ function UserForm(props){
     <Form.Label>City</Form.Label>
     </div>
     <Form.Control type="text" placeholder="City" />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlInput1">
+  <div style={{textAlign:"left"}}>
+    <Form.Label>State</Form.Label>
+    </div>
+    <Form.Control type="text" placeholder="State" />
   </Form.Group>
   
   <Form.Group controlId="exampleForm.ControlSelect1">
