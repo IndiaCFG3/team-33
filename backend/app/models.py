@@ -63,6 +63,6 @@ class User_Volunteer(db.Model):
 class User_Scheme(db.Model):
     __tablename__ = 'user_scheme'
     user_id = user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
-    volunteer_id = db.Column(db.Integer, db.ForeignKey('schemes.scheme_id'), primary_key=True, nullable=False)
+    scheme_id = db.Column(db.Integer, db.ForeignKey('schemes.scheme_id'), primary_key=True, nullable=False)
     complete = db.Column(db.Boolean, nullable=False)
     status_description = db.Column(db.Text, nullable=False)
