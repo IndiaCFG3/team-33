@@ -241,4 +241,4 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
-*.db
+backend/app/site.db
