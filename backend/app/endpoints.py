@@ -45,9 +45,13 @@ def register_user():
 		# What to do with volunteer ID??
 		db.session.add(user)
 		db.session.commit()
+		return 'ok', 200
 	else:
+		return 'volunteer not followed', 400
 		# 400
 
+
+"""
 @app.route('/scheme/add', methods=['POST'])
 def add_scheme():
     content = request.get_json(silent=False) # change to silent = True
@@ -71,7 +75,7 @@ def get_scheme(scheme_id):
 	scheme_dict['organization'] = scheme.organization
 	scheme_dict['private'] = scheme.private
 	scheme_dict['description'] = scheme.description
-	return scheme_dict
+	return scheme_dict	
 
 def compute(val1, operator, val2):
 	if operator == "less than":
@@ -165,3 +169,4 @@ def get_schemes_by_user(user_id):
 @app.route('/user/progress', methods=['POST'])
 def update_progress():
     pass
+ """
