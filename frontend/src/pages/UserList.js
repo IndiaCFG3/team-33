@@ -2,11 +2,16 @@ import React , { useState, useEffect } from 'react'
 import 'bootstrap/dist/css/bootstrap.css'
 import {Button, Col, Row, Form} from 'react-bootstrap'
 import NavBar from './NavBar'
+import axios from 'axios'
 
 
 
 function UserList(props){
-    var [userList, setuserList] = useState(['a','b']);
+    var [userList, setuserList] = useState([]);
+    useEffect(()=>{
+        axios.get('http://localhost:5000/users/all').then(res=>{
+            setuserList(res)}).catch(err => console.log(err))
+    }, [])
 
     return(
         <div>
@@ -25,15 +30,15 @@ function UserList(props){
             </Row>
             <br />
             <hr style={{width:"80%"}} />
-            {userList.map(user => {
+            {userList.map(user => { 
                 return(
                     <div>
                     <Row>
             <Col xs={{span:4, offset:1}}>
-                    <div>Mera Naam</div>
+                    <div>{user.User.firstname} {user.User.lasttname}</div>
                 </Col>
                 <Col xs={{span:4, offset:1}}>
-                <div>Scheme, Scheme, Scheme</div>
+                <div>{user.Schemes[0]}</div>
                 </Col>
             </Row>
             <hr style={{width:"60%"}} />
