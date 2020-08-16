@@ -45,7 +45,6 @@ def register_user():
 		return jsonify({"status": 400})
 
 
-
 @app.route('/scheme/add', methods=['POST'])
 def add_scheme():
 	content = request.get_json(silent=False) # change to silent = True
@@ -117,37 +116,37 @@ def get_schemes_of_user(user_id):
 			user_age = user.age
 			scheme_age = json.loads(scheme.criteria_age)
 			operator = scheme.criteria_age['operator']
-			if compute(user_age, operator, scheme_age):
+			if compute(user_age, operator, scheme_age['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_city:
 			user_city = user.city
 			scheme_city = json.loads(scheme.criteria_city)
 			operator = scheme.criteria_city['operator']
-			if compute(user_city, operator, scheme_city):
+			if compute(user_city, operator, scheme_city['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_state:
 			user_state = user.state
 			scheme_state = json.loads(scheme.criteria_state)
 			operator = scheme.criteria_state['operator']
-			if compute(user_state, operator, scheme_state):
+			if compute(user_state, operator, scheme_state['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_gender:
 			user_gender = user.gender
 			scheme_gender = json.loads(scheme.criteria_gender)
 			operator = scheme.criteria_gender['operator']
-			if compute(user_gender, operator, scheme_gender):
+			if compute(user_gender, operator, scheme_gender['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_monthly_income:
 			user_monthly_income = user.monthly_income
 			scheme_monthly_income = json.loads(scheme.criteria_monthly_income)
 			operator = scheme.criteria_monthly_income['operator']
-			if compute(user_monthly_income, operator, scheme_monthly_income):
+			if compute(user_monthly_income, operator, scheme_monthly_income['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_marriage_status:
 			user_marriage_status = user.marriage_status
 			scheme_marriage_status = json.loads(scheme.criteria_marriage_status)
 			operator = scheme.criteria_marriage_status['operator']
-			if compute(user_marriage_status, operator, scheme_marriage_status):
+			if compute(user_marriage_status, operator, scheme_marriage_status['value']):
 				schemes_list.append(scheme)
 		if scheme.criteria_other:
 			schemes_list.append(scheme)

@@ -25,12 +25,7 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c7ae4d3-3f04-4c86-8384-3a4b25fe236c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/backend/app/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/endpoints.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/endpoints.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/models.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/backend/app/site.db" beforeDir="false" afterPath="$PROJECT_DIR$/backend/app/site.db" afterDir="false" />
-    </list>
+    <list default="true" id="5c7ae4d3-3f04-4c86-8384-3a4b25fe236c" name="Default Changelist" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
