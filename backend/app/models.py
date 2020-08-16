@@ -46,6 +46,7 @@ class Scheme(db.Model):
     organization = db.Column(db.String(150), nullable=False)
     private = db.Column(db.Boolean, nullable=False)
     description = db.Column(db.Text, nullable=False)
+    criteria = db.Column(db.Text, nullable=False)
 
 
 class Volunteer(db.Model):
