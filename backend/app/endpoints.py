@@ -1,6 +1,6 @@
 from app import app
 from app import db
-from flask import request
+from flask import request, jsonify
 from app.models import User, Scheme, Volunteer, User_Scheme
 import json
 
@@ -8,13 +8,10 @@ import json
 @app.route('/volunteer/register', methods=['POST'])
 def register_volunteer():
 	content = request.get_json(silent=False)  # change to silent = True
-    volunteer = Volunteer(
-        fname=content.get('fname'),
-        mname=content.get('mname'),
-        lname=content.get('lname'),
-        email=content.get('email'),
-    )
-	# location of volunteer
+	volunteer = Volunteer(fname=content.get('fname'), lname=content.get('lname'), email=content.get('email'))
+	db.session.add(volunteer)
+	db.session.commit()
+	return jsonify({"status": 200})
 
 @app.route('/user/register', methods=['POST'])
 def register_user():
@@ -43,8 +40,9 @@ def register_user():
 		# What to do with volunteer ID??
 		db.session.add(user)
 		db.session.commit()
+		return jsonify({"status": 200})
 	else:
-		# 400
+		return jsonify({"status": 400})
 
 @app.route('/scheme/add', methods=['POST'])
 def add_scheme():
@@ -52,16 +50,24 @@ def add_scheme():
 	scheme = Scheme(
 		organization=content.get('organization'),
 		private=content.get('private'),
-		description=content.get('description')
+		description=content.get('description'),
+		criteria_city = content.get('criteria_city'),
+		criteria_state=content.get('criteria_state'),
+		criteria_gender=content.get('criteria_gender'),
+		criteria_monthly_income=content.get('criteria_monthly_income'),
+		criteria_marriage_status=content.get('criteria_marriage_status'),
+		criteria_age=content.get('criteria_age'),
+		criteria_other=content.get('criteria_other')
 	)
+	return jsonify({"status": 200})
 	# How to handle criteria?
 
 @app.route('/scheme')
 def get_all_schemes():
 	scheme_list = Scheme.query.all()
-	return scheme_list
+	return jsonify(scheme_list)
 
-@app.route('/scheme/<int:scheme_id>')
+@app.route('/scheme/single/<int:scheme_id>')
 def get_scheme(scheme_id):
 	scheme = Scheme.query.filter_by(scheme_id=scheme_id)
 	scheme_dict = []
@@ -69,7 +75,7 @@ def get_scheme(scheme_id):
 	scheme_dict['organization'] = scheme.organization
 	scheme_dict['private'] = scheme.private
 	scheme_dict['description'] = scheme.description
-	return scheme_dict
+	return jsonify(scheme_dict)
 
 def compute(val1, operator, val2):
 	if operator == "less than":
@@ -100,7 +106,7 @@ def compute(val1, operator, val2):
 
 # Match schemes
 @app.route('/scheme/match/<int:user_id>')
-def get_schemes_by_user(user_id):
+def get_schemes_of_user(user_id):
 	schemes_list = []
 	user  = User.query.filter_by(user_id=user_id).all()
 	schemes = Scheme.query.all()
@@ -143,11 +149,12 @@ def get_schemes_by_user(user_id):
 				schemes_list.append(scheme)
 		if scheme.criteria_other:
 			schemes_list.append(scheme)
-	return schemes_list
+	return jsonify(schemes_list)
 
 # Get schemes of a user
 @app.route('/user/schemes/<int:user_id>')
 def get_schemes_by_user(user_id):
+	print("here")
 	schemes = User_Scheme.query.filter_by(user_id=user_id).all()
 	scheme_list = []
 	for scheme in schemes:
@@ -157,7 +164,7 @@ def get_schemes_by_user(user_id):
 		scheme_dict['scheme_id'] = scheme.scheme_id
 		# Add shc
 		scheme_list.append(scheme_dict)
-	return scheme_list
+	return jsonify(scheme_list)
 
 # Update progress
 @app.route('/user/progress', methods=['POST'])

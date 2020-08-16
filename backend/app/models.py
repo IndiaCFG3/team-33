@@ -1,5 +1,5 @@
 import enum
-from run import db
+from app import db
 from datetime import datetime
 
 
@@ -28,7 +28,7 @@ class User(db.Model):
     address2 = db.Column(db.Text, nullable=True)
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(100), nullable=False)
-    pincode = db.Column(db.Integer(6), nullable=False)
+    pincode = db.Column(db.Integer, nullable=False)
     gender = db.Column(db.Enum(Gender), nullable=False)
     dob = db.Column(db.String(20), nullable=False)
     age = db.Column(db.Integer, nullable=False)
@@ -70,6 +70,6 @@ class User_Volunteer(db.Model):
 class User_Scheme(db.Model):
     __tablename__ = 'user_scheme'
     user_id = user_id = db.Column(db.Integer, db.ForeignKey('user.user_id'), primary_key=True, nullable=False)
-    scheme_id = db.Column(db.Integer, db.ForeignKey('schemes.scheme_id'), primary_key=True, nullable=False)
+    scheme_id = db.Column(db.Integer, db.ForeignKey('scheme.scheme_id'), primary_key=True, nullable=False)
     complete = db.Column(db.Boolean, nullable=False)
     status_description = db.Column(db.Text, nullable=False)
