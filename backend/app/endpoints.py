@@ -44,6 +44,8 @@ def register_user():
 	else:
 		return jsonify({"status": 400})
 
+
+
 @app.route('/scheme/add', methods=['POST'])
 def add_scheme():
 	content = request.get_json(silent=False) # change to silent = True
@@ -169,5 +171,4 @@ def get_schemes_by_user(user_id):
 # Update progress
 @app.route('/user/progress', methods=['POST'])
 def update_progress():
-	pass
-
+    pass

@@ -2,7 +2,7 @@ import enum
 from app import db
 from datetime import datetime
 
-
+""" 
 class Gender(enum.Enum):
     male = "Male"
     female = "Female"
@@ -14,14 +14,15 @@ class MarriageStatus(enum.Enum):
     married = "Married"
     divorced = "Divorced"
     widow = "Widow"
-    widower = "Widower"
+    widower = "Widower" """
 
 
 class User(db.Model):
     __tablename__ = 'user'
     user_id = db.Column(db.Integer, primary_key=True)
-    registerd_ph_no = db.Column(db.String(15), nullable=False)
+    registered_phone_no = db.Column(db.String(15), nullable=False)
     fname = db.Column(db.String(50), nullable=False)
+    mname = db.Column(db.String(50), nullable=False)
     lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), nullable=False)
     address1 = db.Column(db.Text, nullable=False)
@@ -29,14 +30,14 @@ class User(db.Model):
     city = db.Column(db.String(100), nullable=False)
     state = db.Column(db.String(100), nullable=False)
     pincode = db.Column(db.Integer, nullable=False)
-    gender = db.Column(db.Enum(Gender), nullable=False)
+    gender = db.Column(db.String(20), nullable=False)
     dob = db.Column(db.String(20), nullable=False)
     age = db.Column(db.Integer, nullable=False)
     monthly_income = db.Column(db.Numeric, nullable=False)
     education = db.Column(db.String(100), nullable=False)
-    marriage_status = db.Column(db.Enum(MarriageStatus), nullable=False)
+    marriage_status = db.Column(db.String(20), nullable=False)
     volunteer_id = db.Column(db.Integer, db.ForeignKey('volunteer.volunteer_id'), nullable=False)
-
+    
     def __repr__(self):  # shows how user object will look like when its printed known as magic method
         return f"User('{self.fname}','{self.lname}')"
 
@@ -61,6 +62,9 @@ class Volunteer(db.Model):
     fname = db.Column(db.String(50), nullable=False)
     lname = db.Column(db.String(50), nullable=False)
     email = db.Column(db.String(100), nullable=False)
+
+    def __repr__(self):
+        return f'<Volunteer{self.volunteer_id}>'
 
 class User_Volunteer(db.Model):
     __tablename__ = 'user_volunteer'
