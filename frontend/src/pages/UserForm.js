@@ -24,6 +24,12 @@ function UserForm(props){
   </Form.Group>
   <Form.Group controlId="exampleForm.ControlInput1">
   <div style={{textAlign:"left"}}>
+    <Form.Label>Middle name</Form.Label>
+    </div>
+    <Form.Control type="text" placeholder="First Name" />
+  </Form.Group>
+  <Form.Group controlId="exampleForm.ControlInput1">
+  <div style={{textAlign:"left"}}>
     <Form.Label>Last name</Form.Label>
     </div>
     <Form.Control type="text" placeholder="Last Name" />
