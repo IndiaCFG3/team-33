@@ -37,7 +37,8 @@ function Login(props){
         </Col>
         </div>
         </div>
-    )
-}
+        )
+        }
+
 
 export default Login
