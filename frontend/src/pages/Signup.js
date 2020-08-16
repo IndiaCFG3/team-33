@@ -1,12 +1,16 @@
 import React from 'react'
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
+=======
+>>>>>>> backend
 
 function Signup(props){
 
     return(
         <div>
+<<<<<<< HEAD
         <div>
         <h1 style={{textAlign:"center", marginTop:"20px"}}>PANAH</h1>
         <h4 style={{textAlign:"center", marginTop:"20px"}}>SIGNUP</h4>
@@ -47,6 +51,9 @@ function Signup(props){
         </Col>
         </div>
         </div>
+=======
+            Login Page
+>>>>>>> backend
         </div>
     )
 }

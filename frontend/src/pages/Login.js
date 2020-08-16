@@ -1,4 +1,5 @@
 import React from 'react'
+<<<<<<< HEAD
 import 'bootstrap/dist/css/bootstrap.css'
 import { Col, Row,Form, Button } from 'react-bootstrap';
 import {Link} from 'react-router-dom'
@@ -36,6 +37,14 @@ function Login(props){
                 <div>Yet to be a Member? <Link to='/signup'>Signup</Link> </div>
         </Col>
         </div>
+=======
+
+function Login(props){
+
+    return(
+        <div>
+            Login Page
+>>>>>>> backend
         </div>
     )
 }

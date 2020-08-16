@@ -2,6 +2,7 @@ import React from 'react';
 import './App.css';
 import {BrowserRouter as Router, Switch, Route} from 'react-router-dom'
 
+<<<<<<< HEAD
 import Signup from './pages/Signup'
 import Login from './pages/Login'
 import UserDetail from './pages/UserDetail'
@@ -9,10 +10,13 @@ import UserForm from './pages/UserForm'
 import UserPending from './pages/UserPending'
 import UserList from './pages/UserList'
 
+=======
+>>>>>>> backend
 function App() {
   return (
     <Router>
     <div className="App">
+<<<<<<< HEAD
     
     <Switch>
       <Route path="/" component={Login} exact />
@@ -24,6 +28,9 @@ function App() {
     </Switch>
   
       
+=======
+      Hi
+>>>>>>> backend
     </div>
     </Router>
   );
